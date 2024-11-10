@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Lesson1 {
 
     public static void main(String[] args) {
-        lenInitialValueArray(6, 1);
+        diagonalInArray();
     }
 
     public static void printThreeWords() {
@@ -33,29 +33,14 @@ public class Lesson1 {
         int value = 1;
         if (value <= 0) {
             System.out.println("Красный");
-        } else if (0 < value && value <= 100) {
-
+        } else if (value <= 100) {
             System.out.println("Желтый");
-
         } else
             System.out.println("Зеленый");
-
-    }
-
-    public static void compareNumbers1() {
-        int a = 55;
-        int b = 65;
-        if (a > b) {
-            System.out.println(a + " " + ">" + " " + b);
-        } else if (a == b) {
-            System.out.println(a + " " + "=" + " " + b);
-        } else {
-            System.out.println(a + " " + "<" + " " + b);
-        }
     }
 
     public static void compareNumbers2() {
-        int a = 55;
+        int a = 89;
         int b = 65;
         if (a >= b) {
             System.out.println("a>=b");
@@ -64,21 +49,17 @@ public class Lesson1 {
         }
     }
 
-    public static void compareSum() {
-        Scanner number = new Scanner(System.in);
-        System.out.println("Введите целое число a");
-        int a = number.nextInt();
-        System.out.println("Введите целое число b");
-        int b = number.nextInt();
-
-        boolean sum = a + b >= 10 && a + b <= 20;
-        System.out.println(sum);
+    public static boolean compareSum(int a, int b) {
+        int sum = a + b;
+        if (sum >= 10 && sum <= 20) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public static void numberIsPositiveOrNegative() {
-        Scanner number = new Scanner(System.in);
-        System.out.println("Введите целое число a");
-        int a = number.nextInt();
+
+    public static void numberIsPositiveOrNegative(int a) {
         if (a >= 0) {
             System.out.println("Число" + " " + a + " " + "положительное");
         } else {
@@ -86,28 +67,21 @@ public class Lesson1 {
         }
     }
 
-    public static void numberIsNegative() {
-        Scanner number = new Scanner(System.in);
-        System.out.println("Введите целое число a");
-        int a = number.nextInt();
-
-        System.out.println(a < 0);
-
+    public static boolean numberIsNegative(int a) {
+        if (a < 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public static void printPhrase() {
-
-        Scanner number = new Scanner(System.in);
-        System.out.println("Введите нужное количество");
-        int count = number.nextInt();
-        String phrase = "java";
+    public static void printPhrase(String phrase, int count) {
         System.out.println(phrase.repeat(count));
     }
 
     public static boolean isYearLeap() {
-        Scanner number = new Scanner(System.in);
-        System.out.println("Введите год");
-        int year = number.nextInt();
+
+        int year = 2024;
 
         boolean leapYear;
         leapYear = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
@@ -149,13 +123,10 @@ public class Lesson1 {
     }
 
     public static void diagonalInArray() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите число n, размер массива");
-        int n = sc.nextInt();
 
         Random rand = new Random();
 
-        int[][] array = new int[n][n];
+        int[][] array = new int[4][4];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 array[i][j] = rand.nextInt(8);
@@ -182,7 +153,6 @@ public class Lesson1 {
     }
 
 }
-
 
 
 
