@@ -1,10 +1,11 @@
 public class Person {
-    String nameOfPerson;
-    int ageOfPerson;
-    String positionOfPerson;
-    String phoneOfPerson;
-    String emailOfPerson;
-    int salaryOfPerson;
+    private String nameOfPerson;
+    private int ageOfPerson;
+    private String positionOfPerson;
+    private String phoneOfPerson;
+    private String emailOfPerson;
+    private int salaryOfPerson;
+
 
     public Person(String nameOfPerson, int ageOfPerson, String positionOfPerson, String phoneOfPerson,
                   String emailOfPerson, int salaryOfPerson) {

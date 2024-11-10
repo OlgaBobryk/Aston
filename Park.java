@@ -4,18 +4,20 @@ public class Park {
 
     public static class Attraction {
 
-        String nameOfAttraction;
-        int price;
-        String time;
+        private String nameOfAttraction;
+        private int price;
+        private String time;
 
-        public Attraction(String nameOfAttraction,String time, int price){
-            this.nameOfAttraction=nameOfAttraction;
-            this.time=time;
-            this.price=price;
+        public Attraction(String nameOfAttraction, String time, int price) {
+            this.nameOfAttraction = nameOfAttraction;
+            this.time = time;
+            this.price = price;
         }
-        public void infoAboutAttraction(){
-            System.out.println("Атракцион "  + nameOfAttraction + ", " + "время " + time + ", " + "стоимость " +  price
-            + ".");
+
+
+        public void infoAboutAttraction() {
+            System.out.println("Атракцион " + nameOfAttraction + ", " + "время " + time + ", " + "стоимость " + price
+                    + ".");
 
         }
 

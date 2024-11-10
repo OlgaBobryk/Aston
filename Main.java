@@ -1,13 +1,16 @@
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class Main {
     public static void main(String[] args) {
 
 
         Employee emp = new Employee();
-        emp.name = "Васильев Василий Васильевич";
-        emp.age = 31;
-        emp.salary = 1000;
-        emp.email = "vas@gmail.com";
-        emp.phone = "457895";
+        emp.setName("Васильев Василий Васильевич");
+        emp.setAge(31);
+        emp.setSalary(1000);
+        emp.setEmail("vas@gmail.com");
+        emp.setPhone("457895");
         emp.aboutEmployee();
         System.out.println();
 
@@ -32,6 +35,11 @@ public class Main {
         attraction.infoAboutAttraction();
         attraction1.infoAboutAttraction();
         attraction2.infoAboutAttraction();
+
+        ArrayList<Park.Attraction> allAttractions = new ArrayList<>();
+        allAttractions.add(attraction);
+        allAttractions.add(attraction1);
+        allAttractions.add(attraction2);
 
 
     }
