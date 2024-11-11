@@ -1,0 +1,57 @@
+public class Main {
+    public static void main(String[] args) {
+
+
+        Cat cat = new Cat("Пушистик", 14);
+        Cat cat1 = new Cat("Лапушка", 4);
+        Cat cat2 = new Cat("Фикс", 12);
+
+
+        Dog dog = new Dog("Бобик");
+        Dog dog1 = new Dog("Куба");
+        Dog dog2 = new Dog("Тим");
+
+        cat.running(180);
+        cat1.running(0);
+        cat2.running(250);
+
+        cat.swimming(120);
+
+        dog.running(0);
+        dog1.running(400);
+        dog2.running(600);
+
+
+        System.out.println("Кол-во котов " + Cat.getCountCat());
+        System.out.println("Кол-во собак " + Dog.getCountDog());
+
+
+        CatBowl bowl = new CatBowl(12);
+
+        bowl.getFoodInBowl();
+        cat.eating(bowl);
+        bowl.addFood(1);
+        cat2.eating(bowl);
+
+        CatBowl bowl2 = new CatBowl(15);
+        Cat[] catsArray = new Cat[3];
+        catsArray[0] = cat;
+        catsArray[1] = cat1;
+        catsArray[2] = cat2;
+
+        for (int i = 0; i <= catsArray.length; i++) {
+            if (catsArray[i].isHungry() == true && catsArray[i].getAppetit() < bowl2.getFoodInBowl()) {
+                catsArray[i].eating(bowl2);
+
+                System.out.println(catsArray[i].name + " поел и сыт");
+                bowl2.deleteFood();
+
+            } else {
+
+                System.out.println(catsArray[i].name + " остался голоден");
+            }
+
+        }
+    }
+}
+
