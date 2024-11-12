@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
 
+<<<<<<< HEAD
         Cat cat = new Cat("Пушистик", 14);
         Cat cat1 = new Cat("Лапушка", 4);
         Cat cat2 = new Cat("Фикс", 12);
@@ -55,3 +56,15 @@ public class Main {
     }
 }
 
+=======
+        Circle circle = new Circle(23, "белый", "черный");
+        Triangle triangle = new Triangle(12, 17, 13, 21,
+                "красный", "желтый");
+        Rectangle rectangle = new Rectangle(31, 12, "синий", "красный");
+
+        circle.printInfo();
+        triangle.printInfo();
+        rectangle.printInfo();
+    }
+}
+>>>>>>> 8044fda (Lesson5| task2)
