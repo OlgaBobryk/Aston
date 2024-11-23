@@ -37,11 +37,5 @@ public class Rectangle implements Figure {
         return borderColorOfRectangle;
     }
 
-    @Override
-    public void printInfo() {
-        System.out.println("[ Площадь прямоугольника " + printArea() + ", Периметр прямоугольника  " + printPerimeter() +
-                ", Цвет заливки прямоугольника  " + backgroundColor() + ", Цвет границ прямоугольника " + borderColor() + " ]");
 
-
-    }
 }

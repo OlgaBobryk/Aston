@@ -1,8 +1,18 @@
 public class Main {
     public static void main(String[] args) {
+        Circle circle = new Circle(23, "белый", "черный");
+        Triangle triangle = new Triangle(12, 17, 13,
+                "красный", "желтый");
+        Rectangle rectangle = new Rectangle(31, 12, "синий", "красный");
 
+        System.out.print("Круг: ");
+        circle.printInfo();
+        System.out.print("Треугольник: ");
+        triangle.printInfo();
+        System.out.print("Прямоугольник: "); rectangle.printInfo();
 
-<<<<<<< HEAD
+        System.out.println(" ");
+
         Cat cat = new Cat("Пушистик", 14);
         Cat cat1 = new Cat("Лапушка", 4);
         Cat cat2 = new Cat("Фикс", 12);
@@ -25,6 +35,7 @@ public class Main {
 
         System.out.println("Кол-во котов " + Cat.getCountCat());
         System.out.println("Кол-во собак " + Dog.getCountDog());
+        System.out.println("Кол-во животных " + (Cat.getCountCat() + Dog.getCountDog()));
 
 
         CatBowl bowl = new CatBowl(12);
@@ -34,37 +45,16 @@ public class Main {
         bowl.addFood(1);
         cat2.eating(bowl);
 
-        CatBowl bowl2 = new CatBowl(15);
+        CatBowl bowl2 = new CatBowl(19);
         Cat[] catsArray = new Cat[3];
         catsArray[0] = cat;
         catsArray[1] = cat1;
         catsArray[2] = cat2;
 
         for (int i = 0; i <= catsArray.length; i++) {
-            if (catsArray[i].isHungry() == true && catsArray[i].getAppetit() < bowl2.getFoodInBowl()) {
-                catsArray[i].eating(bowl2);
-
-                System.out.println(catsArray[i].name + " поел и сыт");
-                bowl2.deleteFood();
-
-            } else {
-
-                System.out.println(catsArray[i].name + " остался голоден");
-            }
+            catsArray[i].eating(bowl2);
 
         }
+
     }
 }
-
-=======
-        Circle circle = new Circle(23, "белый", "черный");
-        Triangle triangle = new Triangle(12, 17, 13, 21,
-                "красный", "желтый");
-        Rectangle rectangle = new Rectangle(31, 12, "синий", "красный");
-
-        circle.printInfo();
-        triangle.printInfo();
-        rectangle.printInfo();
-    }
-}
->>>>>>> 8044fda (Lesson5| task2)

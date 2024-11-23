@@ -1,14 +1,14 @@
 public class Cat extends Animals {
     private static int countCat = 0;
     private boolean hungry;
-    private static int appetit;
+    private int appetit;
+
 
     public Cat(String name, int appetit) {
         this.name = name;
         this.appetit = appetit;
-        countCat++;
         this.hungry = true;
-
+        countCat++;
     }
 
     public boolean isHungry() {
@@ -19,9 +19,6 @@ public class Cat extends Animals {
         this.hungry = hungry;
     }
 
-    public static int getAppetit() {
-        return appetit;
-    }
 
     public void setAppetit(int appetit) {
         this.appetit = appetit;
@@ -49,11 +46,13 @@ public class Cat extends Animals {
     }
 
     public int eating(CatBowl bowl) {
-        if (bowl.getFoodInBowl() <= appetit) {
+        if (bowl.getFoodInBowl() < this.appetit) {
+            System.out.println("Кот " + Cat.this.name + " не поел");
             return bowl.getFoodInBowl();
         } else {
-            bowl.deleteFood();
+            System.out.println("Кот " + Cat.this.name + "  поел");
+            return bowl.deleteFood(bowl.getFoodInBowl() - this.appetit);
         }
-        return bowl.deleteFood();
+
     }
 }

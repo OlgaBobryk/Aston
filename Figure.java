@@ -9,6 +9,9 @@ public interface Figure {
 
     String borderColor();
 
-    void printInfo();
+   default void printInfo(){
+       System.out.println("[ Площадь  " + printArea() + ",  Периметр   " + printPerimeter() +
+               ", Цвет заливки   " + backgroundColor() + ", Цвет границ  " + borderColor() + " ]");
+   }
 
 }
