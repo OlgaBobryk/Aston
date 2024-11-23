@@ -35,4 +35,11 @@ public class Circle implements Figure {
         return borderColorOfCircle;
     }
 
+    @Override
+    public void printInfo() {
+        System.out.println("[ Площадь круга " + printArea() + ", Периметр круга  " + printPerimeter() +
+                ", Цвет заливки круга  " + backgroundColor() + ", Цвет границ круга " + borderColor() + " ]");
+
+
+    }
 }
