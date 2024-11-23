@@ -10,7 +10,8 @@ public class Main {
         circle.printInfo();
         System.out.print("Треугольник: ");
         triangle.printInfo();
-        System.out.print("Прямоугольник: "); rectangle.printInfo();
+        System.out.print("Прямоугольник: ");
+        rectangle.printInfo();
 
         System.out.println(" ");
 
@@ -56,16 +57,6 @@ public class Main {
             catsArray[i].eating(bowl2);
 
         }
-
-
-        Circle circle = new Circle(23, "белый", "черный");
-        Triangle triangle = new Triangle(12, 17, 13, 21,
-                "красный", "желтый");
-        Rectangle rectangle = new Rectangle(31, 12, "синий", "красный");
-
-        circle.printInfo();
-        triangle.printInfo();
-        rectangle.printInfo();
 
     }
 }
