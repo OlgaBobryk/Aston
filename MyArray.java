@@ -5,23 +5,21 @@ public class MyArray {
 
 
         if (myArray.length != 4) {
-            throw new MyArraySizeException();
+            throw new MyArraySizeException("Неверная длинна массива");
         }
         int sum = 0;
-        int row;
-        int column;
-        int number;
 
-        for (int i = 0; i < myArray.length; i++) {
-            row = i;
-            for (int j = 0; j < myArray[i].length; j++) {
-                column = j;
+
+        for (int row = 0; row < myArray.length; row++) {
+            if(myArray[row].length!=4)
+                throw new MyArraySizeException("Неверная длинна массива");
+            for (int column = 0; column < myArray[row].length;column++) {
                 try {
-                    number = Integer.parseInt(String.valueOf(myArray[i][j]));
-                    sum = sum + number;
+
+                    sum +=Integer.parseInt(String.valueOf(myArray[row][column]));
 
                 } catch (NumberFormatException e) {
-                    String info = String.valueOf(row) + "." + String.valueOf(column) + " ячейке";
+                    String info = row+ "." + column + " ячейке";
                     throw new MyArrayDataException(info);
 
 

@@ -1,8 +1,11 @@
 public class MyArraySizeException extends Exception {
 
-    public MyArraySizeException() {
+    public MyArraySizeException(String info) {
 
-        System.out.println("Размер массива не соответствует требованию");
+        super(info);
 
     }
+
+
+
 }
