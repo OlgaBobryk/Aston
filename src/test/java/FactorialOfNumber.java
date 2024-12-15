@@ -1,5 +1,3 @@
-package src.test.java;
-
 public class FactorialOfNumber {
     public int getFactorial(int a) {
         if (a == 0 || a == 1) {
