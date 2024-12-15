@@ -1,0 +1,228 @@
+Index: Main.java
+===================================================================
+diff --git a/Main.java b/Task1/Main.java
+rename from Main.java
+rename to Task1/Main.java
+--- a/Main.java	
++++ b/Task1/Main.java	
+@@ -1,15 +1,15 @@
++package Task1;
++
+ public class Main {
+     public static void main(String[] args) {
+ 
+-
+-        Cat cat = new Cat("Пушистик", 14);
+-        Cat cat1 = new Cat("Лапушка", 4);
+-        Cat cat2 = new Cat("Фикс", 12);
++        Cat cat = new Cat("Пух", 12);
++        Cat cat1 = new Cat("Лапушка", 78);
++        Cat cat2 = new Cat("Фикс", 4);
+ 
+ 
+         Dog dog = new Dog("Бобик");
+-        Dog dog1 = new Dog("Куба");
+-        Dog dog2 = new Dog("Тим");
++
+ 
+         cat.running(180);
+         cat1.running(0);
+@@ -18,40 +18,37 @@
+         cat.swimming(120);
+ 
+         dog.running(0);
+-        dog1.running(400);
+-        dog2.running(600);
+ 
+ 
+         System.out.println("Кол-во котов " + Cat.getCountCat());
+         System.out.println("Кол-во собак " + Dog.getCountDog());
++        System.out.println("Количество всех животных " + (Cat.getCountCat() + Dog.getCountDog()));
+ 
+ 
+         CatBowl bowl = new CatBowl(12);
+ 
+-        bowl.getFoodInBowl();
+         cat.eating(bowl);
+         bowl.addFood(1);
+         cat2.eating(bowl);
+ 
+-        CatBowl bowl2 = new CatBowl(15);
++        System.out.println("массив");
++
++        CatBowl bowl2 = new CatBowl(18);
+         Cat[] catsArray = new Cat[3];
+         catsArray[0] = cat;
+         catsArray[1] = cat1;
+         catsArray[2] = cat2;
+ 
+         for (int i = 0; i <= catsArray.length; i++) {
+-            if (catsArray[i].isHungry() == true && catsArray[i].getAppetit() < bowl2.getFoodInBowl()) {
+-                catsArray[i].eating(bowl2);
++
++            catsArray[i].eating(bowl2);
+ 
+-                System.out.println(catsArray[i].name + " поел и сыт");
+-                bowl2.deleteFood();
+ 
+-            } else {
+ 
+-                System.out.println(catsArray[i].name + " остался голоден");
+-            }
++        }
+ 
+-        }
+     }
++
+ }
++
+ 
+Index: CatBowl.java
+===================================================================
+diff --git a/CatBowl.java b/Task1/CatBowl.java
+rename from CatBowl.java
+rename to Task1/CatBowl.java
+--- a/CatBowl.java	
++++ b/Task1/CatBowl.java	
+@@ -1,7 +1,10 @@
++package Task1;
++
+ public class CatBowl {
+ 
+     private int foodInBowl;
+ 
++
+     public CatBowl(int foodInBowl) {
+         this.foodInBowl = foodInBowl;
+ 
+@@ -20,15 +23,14 @@
+         return foodInBowl;
+ 
+     }
+-
+-    public int deleteFood() {
+-        foodInBowl -= Cat.getAppetit();
+-        return foodInBowl;
+-
++    public int deleteFood(int foodAfter){
++        return foodInBowl =foodAfter;
+     }
++
+ }
+ 
+ 
+ 
+ 
+ 
++
+Index: Dog.java
+===================================================================
+diff --git a/Dog.java b/Task1/Dog.java
+rename from Dog.java
+rename to Task1/Dog.java
+--- a/Dog.java	
++++ b/Task1/Dog.java	
+@@ -1,7 +1,10 @@
++package Task1;
++
+ public class Dog extends Animals {
+     private static int countDog = 0;
+ 
+     public Dog(String name) {
++        super();
+         this.name = name;
+         countDog++;
+     }
+Index: Animals.java
+===================================================================
+diff --git a/Animals.java b/Task1/Animals.java
+rename from Animals.java
+rename to Task1/Animals.java
+--- a/Animals.java	
++++ b/Task1/Animals.java	
+@@ -1,8 +1,11 @@
+-public class Animals {
++package Task1;
++
++public abstract class Animals {
+     String name;
+ 
++
+     public Animals() {
+-    }
++   }
+ 
+     public void running(int run) {
+         System.out.println(name + " пробежал " + "м");
+Index: Cat.java
+===================================================================
+diff --git a/Cat.java b/Task1/Cat.java
+rename from Cat.java
+rename to Task1/Cat.java
+--- a/Cat.java	
++++ b/Task1/Cat.java	
+@@ -1,30 +1,26 @@
++package Task1;
++
++
+ public class Cat extends Animals {
+     private static int countCat = 0;
+-    private boolean hungry;
+-    private static int appetit;
++    private boolean isHungry = true;
++    private int appetit;
++
++
++    int food;
++
+ 
+     public Cat(String name, int appetit) {
++        super();
+         this.name = name;
+         this.appetit = appetit;
+         countCat++;
+-        this.hungry = true;
+ 
+     }
++
+ 
+     public boolean isHungry() {
+-        return hungry;
+-    }
+-
+-    public void setHungry(boolean hungry) {
+-        this.hungry = hungry;
+-    }
+-
+-    public static int getAppetit() {
+-        return appetit;
+-    }
+-
+-    public void setAppetit(int appetit) {
+-        this.appetit = appetit;
++        return true;
+     }
+ 
+     @Override
+@@ -49,11 +45,17 @@
+     }
+ 
+     public int eating(CatBowl bowl) {
+-        if (bowl.getFoodInBowl() <= appetit) {
+-            return bowl.getFoodInBowl();
++
++        if (bowl.getFoodInBowl() < this.appetit) {
++            System.out.println("Коту " + Cat.this.name + " не хватает еды");
++
+         } else {
+-            bowl.deleteFood();
++        //  int foodAfter=   bowl.getFoodInBowl() - this.appetit;
++            System.out.println("Кот " + Cat.this.name + " поел");
+         }
+-        return bowl.deleteFood();
++            return bowl.deleteFood(bowl.getFoodInBowl() - this.appetit);
++
+     }
+ }
++
++
