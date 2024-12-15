@@ -1,4 +1,5 @@
 public class FactorialOfNumber {
+
     public int getFactorial(int a) {
         if (a == 0 || a == 1) {
             return 1;

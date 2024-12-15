@@ -5,7 +5,6 @@ public class FactorialOfNumberTest {
     @Test
     public void factorialOfNumber() {
         FactorialOfNumber factorialOfNumber = new FactorialOfNumber();
-        factorialOfNumber.getFactorial(0);
-        Assert.assertEquals(factorialOfNumber.getFactorial(0), 0, "Значения не равны");
+        Assert.assertEquals(factorialOfNumber.getFactorial(5), 120, "Значения не равны");
     }
 }
